@@ -1,0 +1,43 @@
+{
+    "name": "twee-view-extension",
+    "preferGlobal": false,
+    "version": "0.0.1",
+    "author": "Dmitri Mesin <dmitri.mesin@gmail.com>",
+    "homepage": "https://github.com/mesin/twee-view-extension",
+    "description": "View engines and helpers middleware extension for Twee.io Framework - MVC Framework for Node.js based on Express.js",
+    "license": "MIT",
+    "dependencies": {
+        "consolidate": "*",
+        "express-promise": "*",
+        "underscore": "*",
+        "lodash": "*"
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mesin/twee-view-extension.git"
+    },
+    "keywords": [
+        "consolidate",
+        "express-promise",
+        "promise",
+        "view",
+        "view engine",
+        "view helpers",
+        "twee.io",
+        "framework",
+        "extensions",
+        "modules",
+        "route",
+        "web",
+        "middleware",
+        "mvc",
+        "routes",
+        "rest",
+        "restful",
+        "api"
+    ],
+    "bugs": {
+        "url": "https://github.com/mesin/twee-view-extension/issues"
+    }
+}
