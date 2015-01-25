@@ -1,9 +1,11 @@
+var app = twee.getApplication();
+
 /**
  * Setting view engines
  */
 module.exports.extension = function() {
 
-    var disabled = twee.getConfig('twee:options:view:disabled');
+    var disabled = twee.getConfig('extension:twee-view:disabled');
 
     if (disabled) {
         return;
@@ -11,8 +13,7 @@ module.exports.extension = function() {
 
     var engines = require('consolidate')
         , path = require('path')
-        , app = twee.getApplication()
-        , viewEngines = twee.getConfig('twee:options:view:engines');
+        , viewEngines = twee.getConfig('extension:twee-view:engines');
 
     for (var engineName in viewEngines) {
         if (viewEngines[engineName].disabled) {
@@ -34,11 +35,26 @@ module.exports.extension = function() {
         }
     }
 
-    app.set('view engine', twee.getConfig('twee:options:view:appDefaultEngine'));
+    app.set('view engine', twee.getConfig('extension:twee-view:appDefaultEngine'));
     app.set('views', [path.join(twee.getBaseDirectory(), 'modules')]);
 
     // In development environment disable cache
     if (app.get('env') === 'development') {
         app.set('view cache', false);
     }
+};
+
+module.exports.configNamespace = 'twee-view';
+module.exports.config = {
+    "engines": {
+        "swig": {
+            "fileExt": "html",
+            "options": {
+                "cache": (app.get('env') === 'development' ? false : 'memory')
+            },
+            "disabled": false
+        }
+    },
+    "appDefaultEngine": "html",
+    "disabled": false
 };
