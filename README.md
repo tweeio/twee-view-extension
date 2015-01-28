@@ -15,3 +15,60 @@ To install it use this command:
 ```
 npm install twee-view-extension --save
 ```
+
+
+Editing `package.json` of your application:
+
+```
+"dependencies": {
+    "twee-view-extension": "*",
+    "jade": "*"
+    // or: "swig" ... etc
+}
+```
+
+Turning extension `ON` in `application/configs/twee.js`:
+
+```
+module.exports = {
+    "extensions": {
+        "View Engines": {
+            "module": "twee-view-extension"
+        }
+    }
+};
+```
+
+Default Config:
+
+```
+{
+    "engines": {
+        "swig": {
+            "fileExt": "html",
+            "options": {
+                "cache": (app.get('env') === 'development' ? false : 'memory')
+            },
+            "disabled": false
+        }
+    },
+    "appDefaultEngine": "html",
+    "disabled": false
+}
+```
+
+You're able to add more key-values like `swig` and init `options` for each engine
+
+You can rewrite default config right in `application/configs/twee.js`:
+
+```
+{
+    "extension": {
+        "twee-view": {
+            "engines": {
+                // ...
+            }
+        }
+    }
+}
+```

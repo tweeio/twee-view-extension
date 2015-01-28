@@ -5,7 +5,7 @@ var app = twee.getApplication();
  */
 module.exports.extension = function() {
 
-    var disabled = twee.getConfig('extension:twee-view:disabled');
+    var disabled = twee.getConfig('twee:extension:twee-view:disabled');
 
     if (disabled) {
         return;
@@ -13,7 +13,7 @@ module.exports.extension = function() {
 
     var engines = require('consolidate')
         , path = require('path')
-        , viewEngines = twee.getConfig('extension:twee-view:engines');
+        , viewEngines = twee.getConfig('twee:extension:twee-view:engines');
 
     for (var engineName in viewEngines) {
         if (viewEngines[engineName].disabled) {
@@ -35,7 +35,7 @@ module.exports.extension = function() {
         }
     }
 
-    app.set('view engine', twee.getConfig('extension:twee-view:appDefaultEngine'));
+    app.set('view engine', twee.getConfig('twee:extension:twee-view:appDefaultEngine'));
     app.set('views', [path.join(twee.getBaseDirectory(), 'modules')]);
 
     // In development environment disable cache
